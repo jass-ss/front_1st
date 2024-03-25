@@ -1,4 +1,4 @@
-function debounce(func, timeout = 15) {
+function debounce(func, timeout = 10) {
   let timer;
   return (...args) => {
     clearTimeout(timer);
@@ -33,10 +33,7 @@ export function createHooks(callback) {
     const setState = debounce((newState) => {
       if (newState === states[current]) return;
       states[current] = newState;
-      //callback();
-      //console.log('before-callback', newState);
-      requestAnimationFrame(callback);
-      //setTimeout(() => callback(), 10);
+      callback();
     });
 
     return [states[current], setState];
