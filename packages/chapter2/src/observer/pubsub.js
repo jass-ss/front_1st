@@ -1,9 +1,9 @@
-const fnArr = [];
+export const fnArr = [];
 
 export const 구독 = (fn) => {
   //fn();
   fnArr.push(fn);
-  //console.log('구독!');
+  //console.log('구독!', fn());
   return fn();
 };
 
